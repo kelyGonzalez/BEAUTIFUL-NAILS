@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kely Gonzalez - Beautiful Nails | Servicios de Uñas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #e83e8c; /* Rosa vibrante */
+            --color-secondary: #ff69b4; /* Rosa medio */
+            --color-accent: #ffd1dc; /* Rosa claro */
+            --color-dark-pink: #c2185b; /* Rosa oscuro */
+            --color-light: #fff5f7; /* Rosa muy claro */
+            --color-dark: #4a4a4a;
+            --font-heading: 'Dancing Script', cursive;
+            --font-body: 'Montserrat', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-dark);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-name {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-tagline {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: white;
+            letter-spacing: 4px;
+            margin-top: -3px;
+            text-transform: uppercase;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--color-accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Logo.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: var(--color-dark-pink);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background-color: var(--color-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--color-primary);
+        }
+        
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 380px; /* Altura fija para mantener el diseño original */
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-img {
+    height: 200px; /* Altura fija para la imagen */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre el espacio sin distorsionarse */
+}
+
+.service-content {
+    padding: 1.5rem;
+    flex: 1; /* Ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+}
+
+.service-content h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.8rem;
+    color: var(--color-dark);
+    font-size: 1.5rem;
+}
+
+.service-content p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+        
+        .price {
+            font-weight: bold;
+            color: var(--color-primary);
+            font-size: 1.4rem;
+            display: block;
+            margin-top: 1rem;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+        
+        .gallery-item {
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Instagram Section */
+        .instagram {
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            padding: 6rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .instagram h2 {
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: 3rem;
+        }
+        
+        .instagram p {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+        
+        .instagram-btn {
+            background: white;
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .instagram-btn i {
+            margin-right: 0.8rem;
+            font-size: 1.5rem;
+        }
+        
+        .instagram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            color: var(--color-dark-pink);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-dark-pink);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo .logo-name {
+            font-size: 2.2rem;
+        }
+        
+        .footer-logo .logo-tagline {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+        }
+        
+        .social-links {
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--color-accent);
+            transform: translateY(-5px);
+        }
+        
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .logo-name {
+                font-size: 2rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.8rem;
+                letter-spacing: 3px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span class="logo-name">Kely Gonzalez</span>
+                <span class="logo-tagline">BEAUTIFUL NAILS</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#instagram">Instagram</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Transformamos tus uñas en obras de arte</h1>
+            <p>Servicios profesionales de manicura, pedicura y diseño de uñas</p>
+            <a href="#services" class="btn">Ver Servicios</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">                       
+						<img src="Forrado con Poly Gel.jpg" alt="Forrado con Poly Gel">
+                    </div>
+                    <div class="service-content">
+                        <h3>Forrado con Poly Gel</h3>
+                        <p>Extensión y fortalecimiento con un gel moldeable para una apariencia natural y ultra resistente.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="Base Rubber.jpg" alt="Base Rubber">
+                    </div>
+                    <div class="service-content">
+                        <h3>Base Rubber</h3>
+                        <p>Base adherente de alta fijación que garantiza que tu esmaltado semipermanente dure mucho más.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="Dipping.jpg" alt="Dipping">
+                    </div>
+                    <div class="service-content">
+                        <h3>Dipping</h3>
+                        <p>Técnica de inmersión en polvo de color para un acabado extremadamente duradero y resistente al uso.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="Press On.jpg" alt="Press On">
+                    </div>
+                    <div class="service-content">
+                        <h3>Press On</h3>
+                        <p>Uñas postizas de aplicación instantánea. Un estilo glamuroso y personalizado sin compromiso de tiempo.</p>
+                    </div>
+                </div>
+				<div class="service-card">
+                    <div class="service-img">                       
+						<img src="Semipermanente.jpg" alt="Semipermanente">
+                    </div>
+                    <div class="service-content">
+                        <h3>Semipermanente</h3>
+                        <p>Esmaltado gel que mantiene tus uñas perfectas hasta por tres semanas con un brillo intenso.</p>
+                    </div>
+                </div>
+				<div class="service-card">
+                    <div class="service-img">                       
+						<img src="Semipermanente en Hombre.jpg" alt="Semipermanente en Hombre">
+                    </div>
+                    <div class="service-content">
+                        <h3>Semipermanente en Hombre</h3>
+                        <p>Tratamiento estético discreto para hombres que fortalece las uñas con un acabado limpio y natural.</p>
+                    </div>
+                </div>
+				<div class="service-card">
+                    <div class="service-img">                       
+						<img src="Pies Semipermanente.jpg" alt="Pies Semipermanente">
+                    </div>
+                    <div class="service-content">
+                        <h3>Pies Semipermanente</h3>
+                        <p>Esmaltado de larga duración en pies para un look impecable y sin preocupaciones por varias semanas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería de Trabajos</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="nails 1.jpg" alt="Diseño de uñas 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="nails 2.jpg" alt="Diseño de uñas 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="nails 3.jpg" alt="Diseño de uñas 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="nails 4.jpg" alt="Diseño de uñas 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram">
+        <div class="container">
+            <h2>Sígueme en Instagram</h2>
+            <p>Mantente al día con mis últimos trabajos, promociones especiales y behind the scenes de mi studio.</p>
+            <a href="https://www.instagram.com/_kelygonzalez" class="instagram-btn" target="_blank">
+                <i class="fab fa-instagram"></i> Seguir en Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span class="logo-name">Kely Gonzalez</span>
+                <span class="logo-tagline">BEAUTIFUL NAILS</span>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/_kelygonzalez" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="contact-info">Contacto: +57 310 501 4590</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
